@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example - Pong</title>
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <script type="text/javascript" src="css/shBrushJScript.js"></script>
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <h1>QRLang - Pong</h1>
+
+    <h2>Sample:</h2>
+    <img src="images/pong.jpg">
+
+    <h2>Code:</h2>
+    <pre class="brush: js">
+        //Paddle variables
+        $paddley = $enemypaddley = 35
+
+        //Ball position
+        $ballx = 78
+        $bally = 43
+
+        //Balls dynamic speed
+        $balldx = $balldy = 2
+
+        //The static variables for the thickness of the ball, walls and the length of the paddle
+        #thick = 4
+        #paddlelength = 20
+
+
+        //The draw method for all of the drawing to take place
+        draw{
+          //walls
+          drawbox(0,#thick,#w,#h-#thick-#thick,7)
+
+          write('PONG',70,10,0)
+          write($leftScore, 20, 10)
+          write($rightScore, 135, 10)
+
+          //ball
+            drawbox($ballx, $bally, #thick, #thick, 1)
+
+            //paddles
+            drawbox(#thick,$paddley,#thick,#paddlelength,4)
+            drawbox(#w-#thick-#thick,$enemypaddley,#thick,#paddlelength)
+        }
+
+        update{
+            //key control
+            if(keyup && $paddley > #thick) $paddley-=2
+            if(keydown && $paddley < #h - #thick - #paddlelength) $paddley += 2
+
+            //ai
+            if($bally < $enemypaddley) $enemypaddley-=2
+            else if($enemypaddley < #h - #thick - #paddlelength)$enemypaddley+=2
+
+            //$ball movement
+            $ballx += $balldx
+            $bally += $balldy
+
+
+            //ball collisions on the wall
+            if($bally < #thick || $bally > #h - #thick - #thick) $balldy *= -1
+
+          //ball collisions on the enemy paddle
+            if($ballx > #w - #thick - #thick - #thick){
+                if($bally > $enemypaddley - #thick && $bally < $enemypaddley + #paddlelength){
+                    $balldx *= -1
+                } else {
+                  $leftScore++
+                    $ballx = 78
+              $bally = 43
+                }
+            }
+
+          //ball collisions on the players paddle
+            if($ballx < #thick + #thick){
+                if($bally > $paddley - #thick && $bally < $paddley + #paddlelength){
+                    $balldx *= -1
+                } else {
+                  $rightScore++
+                    $ballx = 78
+                    $bally = 43
+                }
+            }
+        }
+    </pre>
+
+    <h2>Compressed Code:</h2>
+    $A%$B%35$C%78$D%43$E%$F%2DRDB0/4/160/82/7RBWRQSPONGQS/70/10/0RBWR$G/20/10RBWR$H/135/10RBDB$C/$D/4/4/1RBDB4/$A/4/20/4RBDB152/$B/4/20RB.UPIFKUAN$AGT4RB$A-%2IFKDAN$ALT66RB$A+%2IF$DLT$BRB$B-%2EI$BLT66RB$B+%2$C+%$E$D+%$FIF$DLT4OR$DGT82RB$FME-1IF$CGT148RB*IF$DGT$B-4AN$DLT$B+20RB*$EME-1.EL*$G++$C%78$D%43..IF$CLT8RB*IF$DGT$A-4AN$DLT$A+20RB*$EME-1.EL*$H++$C%78$D%43...
+
+    <!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+    <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+
+</body>
+</html>

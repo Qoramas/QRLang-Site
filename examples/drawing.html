@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Example - Drawing</title>
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <script type="text/javascript" src="css/shBrushJScript.js"></script>
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <h1>QRLang - Drawing</h1>
+
+    <h2>Sample:</h2>
+    <img src="images/drawing.jpg">
+
+    <h2>Code:</h2>
+    <pre class="brush: js">
+
+$rightEyebrow = 24
+
+draw{
+	drawbox(40,20,80,50,7)
+
+	//eyes
+	drawbox(53, 31, 15, 12, 6)
+	drawbox(85, 31, 15, 12, 6)
+
+	//eyebrows
+	drawbox(47, 24, 27, 5, 6)
+	drawbox(82, $rightEyebrow, 27, 5, 6)
+
+	//mouth
+	drawbox(65, 57, 24, 5, 6)
+	drawbox(88, 51, 5, 7, 6)
+}
+
+update{
+	if(keyup){
+		$rightEyebrow = 22
+	} else {
+		$rightEyebrow = 24
+	}
+
+}
+    </pre>
+
+    <h2>Compressed Code:</h2>
+    $A%24DRDB40/20/80/50/7RBDB53/31/15/12/6RBDB85/31/15/12/6RBDB47/24/27/5/6RBDB82/$A/27/5/6RBDB65/57/24/5/6RBDB88/51/5/7/6RB.UPIFKURB*$A%22.EL*$A%24..
+
+    <!-- Finally, to actually run the highlighter, you need to include this JS on your page -->
+    <script type="text/javascript">
+        SyntaxHighlighter.all()
+    </script>
+
+</body>
+</html>
