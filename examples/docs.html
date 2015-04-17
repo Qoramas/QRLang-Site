@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 <head lang="en">
@@ -60,4 +61,68 @@
 </script>
 
 </body>
+=======
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>QRLang Docs</title>
+    <script type="text/javascript" src="js/shCore.js"></script>
+    <script type="text/javascript" src="css/shBrushJScript.js"></script>
+    <link href="css/shCore.css" rel="stylesheet" type="text/css" />
+    <link href="css/shThemeDefault.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>QR Lang Docs</h1>
+<br>
+<br>
+<h2>Template</h2>
+<p>A QRLang app requires both the draw and update method. The smallest possible app is as follows:</p>
+<pre class="brush: js">
+    draw{
+    }
+    update{
+    }
+</pre>
+
+<h2>Colour</h2>
+<p>Colour is a number from 0-7</p>
+<p>
+    0-black
+    1-blue
+    2-green
+    3-cyan
+    4-red
+    5-purple
+    6-yellow
+    7-white
+</p>
+
+
+<h2>Docs</h2>
+<p>All mathmatical methods, brackets, conditionals and loops function the same as javascript</p>
+<div class="doc">
+    <h3>drawbox(x,y,w,h)</h3>
+    <p>Draws a box at position x, y with width w and height h. Colour is set by the previously used colour.</p>
+</div>
+<div class="doc">
+    <h3>drawbox(x,y,w,h,c)</h3>
+    <p>Draws a box at position x, y with width w and height h. Colour is set by c.</p>
+</div>
+<div class="doc">
+    <h3>write(string, x, y)</h3>
+    <p>Writes a string starting at position x, y. Colour is set by the previously used colour.</p>
+</div>
+<div class="doc">
+    <h3>write(string, x, y, c)</h3>
+    <p>Writes a string starting at position x, y. Colour is set by c.</p>
+</div>
+
+
+<script type="text/javascript">
+    SyntaxHighlighter.all()
+</script>
+
+</body>
+>>>>>>> f1cb9cca3ded72eae8eaf6967da57f2c01e57b6f
 </html>
